@@ -84,9 +84,33 @@ pre code { display: block; font-size: 100%; }
 input, textarea { box-sizing: border-box; }
 input, select { vertical-align: middle; }
 input[type="radio"] { vertical-align: text-bottom; }
-input.default { box-shadow: 1px 1px 1px var(--color-muted); }
-input.required, input.maxlength { box-shadow: 1px 1px 1px red; }
-input.wayoff { left: -1000px; position: absolute; }
+input.default { box-shadow: none; outline: 2px solid var(--color-primary); outline-offset: 2px; }
+input.required, input.maxlength { border-color: var(--color-error-text); box-shadow: none; }
+/* TASK-BTN-01: Primary submit buttons */
+input[type="submit"],
+button[type="submit"] { display: inline-flex; align-items: center; justify-content: center; padding: var(--space-2) var(--space-5); background: var(--color-primary); color: #fff; border: 1px solid var(--color-primary); border-radius: var(--radius-sm); font-size: var(--font-size-base); font-family: var(--font-body); font-weight: 500; cursor: pointer; transition: background 0.15s, border-color 0.15s; white-space: nowrap; }
+input[type="submit"]:hover,
+button[type="submit"]:hover { background: var(--color-primary-hover); border-color: var(--color-primary-hover); }
+input[type="submit"]:focus-visible,
+button[type="submit"]:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+/* TASK-BTN-02: Danger variants */
+input.danger { background: var(--color-error-text); border-color: var(--color-error-text); color: #fff; }
+input.danger:hover { background: #7f1d1d; border-color: #7f1d1d; }
+/* TASK-BTN-03: Secondary / neutral buttons */
+input[type="button"] { padding: var(--space-2) var(--space-4); background: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: var(--font-size-base); cursor: pointer; transition: background 0.15s; }
+input[type="button"]:hover { background: var(--color-surface-raised); }
+/* TASK-BTN-06: Text inputs and selects */
+input[type="text"],
+input[type="number"],
+input[type="search"],
+input[type="password"],
+input[type="email"],
+input[type="url"],
+select,
+textarea { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); font-size: var(--font-size-base); font-family: var(--font-body); background: var(--color-surface); color: var(--color-text); box-sizing: border-box; transition: border-color 0.15s, outline 0.15s; }
+input:focus,
+select:focus,
+textarea:focus { outline: 2px solid var(--color-primary); outline-offset: -1px; border-color: var(--color-primary); }
 .block { display: block; }
 .version { color: var(--color-muted); font-size: 62%; }
 .js .hidden, .nojs .jsonly { display: none; }
@@ -113,13 +137,15 @@ input.wayoff { left: -1000px; position: absolute; }
 .sqlarea { width: 98%; }
 .sql-footer { margin-bottom: 2.5em; }
 .explain table { white-space: pre; }
-.icon { width: 18px; height: 18px; background: navy center no-repeat; border: 0; padding: 0; vertical-align: middle; }
+/* TASK-BTN-04: Icon buttons */
+.icon { width: 22px; height: 22px; background-color: transparent; background-size: 14px 14px; background-position: center; background-repeat: no-repeat; border: 0; border-radius: var(--radius-sm); padding: 0; cursor: pointer; vertical-align: middle; transition: background-color 0.15s; }
 .icon span { display: none; }
-.icon:hover { background-color: red; }
+.icon:hover { background-color: var(--color-surface-raised); }
 .size { width: 7ex; }
 .help { cursor: help; }
-.footer { position: sticky; bottom: 0; margin: 23px -20px .5em 0; box-shadow: 0 -5px 10px 10px var(--bg); }
-.footer > div { background: var(--bg); padding: 0 0 .5em; }
+/* TASK-BTN-05: Form action bar */
+.footer { position: sticky; bottom: 0; margin: var(--space-6) calc(-1 * var(--space-5)) 0; box-shadow: 0 -2px 8px rgba(15,23,42,0.08); }
+.footer > div { background: var(--color-surface); padding: var(--space-3) var(--space-5); border-top: 1px solid var(--color-border); }
 .footer fieldset { margin-top: 0; }
 .links a { white-space: nowrap; margin-right: 20px; }
 .logout { margin: 0; padding: var(--space-2) var(--space-4); position: absolute; top: 0; right: 0; background: var(--color-surface-raised); border-left: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); border-radius: 0 0 0 var(--radius-sm); display: flex; align-items: center; gap: var(--space-3); font-size: 13px; }
