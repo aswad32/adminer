@@ -1,10 +1,55 @@
 /** @author Ondrej Valka, http://valka.info */
 
 html {
+	/* Legacy variables — keep for backwards compatibility with existing designs */
 	--bg: #fff;
 	--fg: #000;
-	--dim: #eee;
-	--lit: #ddf;
+	--dim: #f1f5f9;
+	--lit: #e0e7ff;
+
+	/* Surfaces */
+	--color-surface: #ffffff;
+	--color-surface-raised: #f8fafc;
+	--color-border: #e2e8f0;
+
+	/* Text */
+	--color-text: #0f172a;
+	--color-muted: #64748b;
+
+	/* Brand / primary */
+	--color-primary: #2563eb;
+	--color-primary-hover: #1d4ed8;
+
+	/* Status */
+	--color-success-bg: #f0fdf4;
+	--color-success-text: #166534;
+	--color-success-border: #bbf7d0;
+	--color-error-bg: #fef2f2;
+	--color-error-text: #991b1b;
+	--color-error-border: #fecaca;
+
+	/* Spacing scale */
+	--space-1: 4px;
+	--space-2: 8px;
+	--space-3: 12px;
+	--space-4: 16px;
+	--space-5: 20px;
+	--space-6: 24px;
+
+	/* Border radius */
+	--radius-sm: 4px;
+	--radius-md: 8px;
+	--radius-lg: 12px;
+
+	/* Shadow */
+	--shadow-sm: 0 1px 3px rgba(15,23,42,0.08);
+	--shadow-md: 0 4px 12px rgba(15,23,42,0.12);
+
+	/* Typography */
+	--font-body: system-ui, -apple-system, "Segoe UI", sans-serif;
+	--font-mono: ui-monospace, "SFMono-Regular", Consolas, monospace;
+	--font-size-base: 14px;
+	--line-height: 1.5;
 }
 
 body { color: var(--fg); background: var(--bg); font: 90%/1.25 Verdana, Arial, Helvetica, sans-serif; margin: 0; min-width: fit-content; }
