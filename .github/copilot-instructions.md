@@ -95,6 +95,25 @@ Each UI change should preserve existing behavior.
 
 ---
 
+## Mandatory Workflow — Issue First
+
+**Every code change requires a GitHub issue before any branch or file is touched.**
+
+```
+gh issue create → git checkout develop && git pull origin develop → git checkout -b feature/<issue-number>-short-description → implement → commit → git push → gh pr create --base develop
+```
+
+Always pull the latest `develop` from remote before branching. This ensures you build on top of all merged work from other team members and avoids unnecessary merge conflicts.
+
+Full steps: see [`specs/contributing.md`](../specs/contributing.md).
+
+- Branch naming: `feature/<issue-number>-<short-kebab-description>`
+- Commit message: `feat: description (#N)` with `Closes #N` in the body
+- PRs always target `develop`, never `main`
+- Labels: `enhancement`, `bug`, `documentation`, `other`
+
+---
+
 ## Styling Guidelines
 
 Prefer modern plain CSS unless otherwise instructed.
