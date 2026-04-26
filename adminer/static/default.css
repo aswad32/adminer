@@ -62,18 +62,23 @@ h1 { font-size: 150%; margin: 0; padding: .8em .667em; border-bottom: 1px solid 
 h2 { font-size: 20px; font-weight: 600; margin: 0 0 var(--space-5) 0; padding: 0 0 var(--space-4) 0; border-bottom: 1px solid var(--color-border); color: var(--color-text); background: none; }
 h3 { font-weight: normal; font-size: 130%; margin: 1em 0 0; }
 form { margin: 0; }
-td table { width: 100%; margin: 0; }
-table { margin: 1em 20px 0 0; font-size: 90%; border-spacing: 0; border-width: 1px 0 0 1px; }
+td table { width: 100%; margin: 0; border: none; box-shadow: none; }
+td table td,
+td table th { border: none; background: none; padding: var(--space-1) var(--space-2); }
+/* TASK-TABLE-01: Base table reset */
+table { margin: 0 0 var(--space-5) 0; font-size: var(--font-size-base); border-spacing: 0; border-collapse: collapse; width: auto; }
 table, td, th, .js .column { border-color: var(--color-border); border-style: solid; }
-td, th { border-width: 0 1px 1px 0; padding: .2em .3em; margin: 0; }
-th { background: var(--dim); text-align: left; }
-thead { position: sticky; top: 0; }
-thead th { text-align: center; padding: .2em .5em; }
-thead td, thead th { background: var(--lit); }
+td, th { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); vertical-align: top; font-size: inherit; }
+/* TASK-TABLE-02: Column headers */
+th { background: var(--color-surface-raised); text-align: left; font-weight: 600; font-size: 12px; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.04em; border-color: var(--color-border); white-space: nowrap; }
+thead { position: sticky; top: 0; z-index: 1; }
+thead th { text-align: center; background: var(--color-surface-raised); border-bottom: 2px solid var(--color-border); }
+thead td, thead th { background: var(--color-surface-raised); }
 fieldset { display: inline; vertical-align: top; padding: .5em .8em; margin: .8em .5em 0 0; border: 1px solid var(--color-border); border-radius: 5px; }
 p { margin: .8em 20px 0 0; }
 img { vertical-align: middle; border: 0; }
 td img { max-width: 200px; max-height: 200px; }
+/* TASK-TABLE-03: Row hover and selection */
 tbody tr:hover td, tbody tr:hover th { background: var(--dim); }
 code { font-size: 110%; padding: 1px 2px; background: var(--dim); }
 pre { margin: 1em 0 0; }
@@ -121,14 +126,18 @@ textarea:focus { outline: 2px solid var(--color-primary); outline-offset: -1px; 
 .error b { background: var(--bg); font-weight: normal; }
 .message { color: var(--color-success-text); background: var(--color-success-bg); border: 1px solid var(--color-success-border); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); margin: 0 0 var(--space-4); font-size: var(--font-size-base); }
 .message table { color: var(--fg); background: var(--bg); }
-.char { color: #007F00; }
-.date { color: #7F007F; }
-.enum { color: #007F7F; }
-.binary { color: red; }
+/* TASK-TABLE-05: NULL / special values */
+td i { color: var(--color-muted); font-style: italic; font-size: 12px; }
+.char  { color: #007F00; }
+.date  { color: #7F007F; }
+.enum  { color: #007F7F; }
+.binary { color: var(--color-error-text); }
+/* TASK-TABLE-03: Row states (continued) */
 .odds tbody tr { background: var(--bg); }
-.odds tbody tr:nth-child(2n) { background: #F5F5F5; }
+.odds tbody tr:nth-child(2n) { background: var(--color-surface-raised); }
 .js .checkable .checked td, .js .checkable .checked th { background: var(--lit); }
-.time { color: silver; font-size: 70%; }
+/* TASK-TABLE-08: Time display */
+.time { color: var(--color-muted); font-size: 11px; }
 .function, .number, .datetime { text-align: right; }
 .type { width: 15ex; }
 .options select, .options input { width: 20ex; }
@@ -136,6 +145,13 @@ textarea:focus { outline: 2px solid var(--color-primary); outline-offset: -1px; 
 .active { font-weight: bold; }
 .sqlarea { width: 98%; }
 .sql-footer { margin-bottom: 2.5em; }
+/* TASK-TABLE-04: Scrollable table wrapper */
+.scrollable { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: var(--space-4); }
+.scrollable table { min-width: max-content; }
+/* TASK-TABLE-06: Pagination */
+.pages { position: sticky; left: 21em; font-size: 13px; padding: var(--space-2) 0; margin-bottom: var(--space-3); }
+.pages a { display: inline-block; padding: var(--space-1) var(--space-3); border: 1px solid var(--color-border); border-radius: var(--radius-sm); color: var(--color-text); text-decoration: none; margin: 0 2px; font-size: 13px; transition: background 0.1s; }
+.pages a:hover { background: var(--color-surface-raised); color: var(--color-primary); }
 .explain table { white-space: pre; }
 /* TASK-BTN-04: Icon buttons */
 .icon { width: 22px; height: 22px; background-color: transparent; background-size: 14px 14px; background-position: center; background-repeat: no-repeat; border: 0; border-radius: var(--radius-sm); padding: 0; cursor: pointer; vertical-align: middle; transition: background-color 0.15s; }
