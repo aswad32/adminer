@@ -1,0 +1,23 @@
+{
+  "version": 2,
+  "functions": {
+    "adminer/index.php": {
+      "runtime": "vercel-php@0.7.2"
+    }
+  },
+  "routes": [
+    {
+      "src": "^/$",
+      "headers": { "Location": "/adminer/" },
+      "status": 302
+    },
+    {
+      "src": "^/adminer/static/(.+)$",
+      "dest": "/adminer/static/$1"
+    },
+    {
+      "src": "^/adminer(/.*)?$",
+      "dest": "/adminer/index.php"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+.git
+tests/
+specs/
+scripts/
+phpcs.xml
+phpstan.neon
+eslint.config.mjs
+compile.php
+lang.php
+coverage.php
+todo.txt
+developing.md
+CONTRIBUTING.md
+SECURITY.md
+CHANGELOG.md

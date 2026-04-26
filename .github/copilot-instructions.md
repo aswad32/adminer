@@ -97,7 +97,7 @@ Each UI change should preserve existing behavior.
 
 ## Mandatory Workflow — Issue First
 
-**Every code change requires a GitHub issue before any branch or file is touched.**
+**Every code change requires a GitHub issue before any branch or file is touched. if existing issues already been created, link your work to the relevant issue instead of creating new ones.**
 
 ```
 gh issue create → git checkout develop && git pull origin develop → git checkout -b feature/<issue-number>-short-description → implement → commit → git push → gh pr create --base develop
