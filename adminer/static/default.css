@@ -436,13 +436,30 @@ table.layout ~ label input[type="checkbox"] {
 
 @media all and (max-width: 800px) {
 	.pages { left: auto; }
-	.js .logout { top: 1.667em; background: var(--color-surface-raised); border: none; box-shadow: none; border-bottom: 1px solid var(--color-border); }
-	#menu { position: static; width: auto; min-width: 23em; background: var(--color-surface); border: 1px solid var(--color-border); border-right: none; margin-top: 9px; box-shadow: var(--shadow-md); }
-	#content { margin-left: 10px !important; }
-	#breadcrumb { left: 48px !important; }
-	.js #foot { position: absolute; top: 2em; left: 0; }
+
+	/* TASK-RESP-05: Mobile logout bar */
+	.js .logout { top: 1.667em; background-color: var(--color-surface-raised); box-shadow: 0 0 5px 5px var(--color-surface-raised); border: none; border-radius: 0; font-size: 12px; }
+
+	/* TASK-RESP-01: Sidebar overlay — fixed + backdrop */
+	#menu { position: static; width: 280px; min-width: unset; background: var(--color-surface); border: none; border-right: 1px solid var(--color-border); box-shadow: var(--shadow-md); margin: 0; }
+	.js #foot { position: fixed; top: 2.5em; left: 0; z-index: 100; max-height: calc(100vh - 2.5em); overflow-y: auto; }
+	.js #foot::before { content: ''; position: fixed; inset: 0; background: rgba(0,0,0,0.3); z-index: -1; }
 	.js .foot { display: none; }
+	.js .foot::before { display: none; }
 	.js #menuopen { display: block; position: absolute; top: 3px; left: 6px; }
+
+	/* TASK-RESP-02: Touch targets */
+	#tables a, #logins a, #menu .links a { min-height: 44px; display: flex; align-items: center; padding: var(--space-2) var(--space-4); }
+	#menuopen { min-width: 44px; min-height: 44px; display: flex; align-items: center; justify-content: center; }
+
+	/* TASK-RESP-03: Breadcrumb overflow */
+	#breadcrumb { left: 48px !important; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: calc(100vw - 60px); }
+
+	/* TASK-RESP-04: Scrollable touch + stacked fieldsets */
+	.scrollable { -webkit-overflow-scrolling: touch; }
+	fieldset { display: block; width: 100%; box-sizing: border-box; margin-right: 0; }
+
+	#content { margin-left: 10px !important; }
 	.nojs #menu { position: static; }
 	.rtl.js #foot { left: auto; right: 0; }
 	.rtl .pages { right: auto; }
