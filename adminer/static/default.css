@@ -58,19 +58,19 @@ a:visited { color: navy; }
 a:link:hover, a:visited:hover { color: red; text-decoration: underline; }
 a.text:hover { text-decoration: none; }
 a.jush-help:hover { color: inherit; }
-h1 { font-size: 150%; margin: 0; padding: .8em .667em; border-bottom: 1px solid #999; font-weight: normal; color: #777; background: var(--dim); }
+h1 { font-size: 150%; margin: 0; padding: .8em .667em; border-bottom: 1px solid var(--color-border); font-weight: normal; color: var(--color-muted); background: var(--dim); }
 h2 { font-size: 150%; margin: 0 0 20px -18px; padding: .8em 1em; border-bottom: 1px solid var(--fg); font-weight: normal; background: var(--lit); }
 h3 { font-weight: normal; font-size: 130%; margin: 1em 0 0; }
 form { margin: 0; }
 td table { width: 100%; margin: 0; }
 table { margin: 1em 20px 0 0; font-size: 90%; border-spacing: 0; border-width: 1px 0 0 1px; }
-table, td, th, .js .column { border-color: #999; border-style: solid; }
+table, td, th, .js .column { border-color: var(--color-border); border-style: solid; }
 td, th { border-width: 0 1px 1px 0; padding: .2em .3em; margin: 0; }
 th { background: var(--dim); text-align: left; }
 thead { position: sticky; top: 0; }
 thead th { text-align: center; padding: .2em .5em; }
 thead td, thead th { background: var(--lit); }
-fieldset { display: inline; vertical-align: top; padding: .5em .8em; margin: .8em .5em 0 0; border: 1px solid #999; border-radius: 5px; }
+fieldset { display: inline; vertical-align: top; padding: .5em .8em; margin: .8em .5em 0 0; border: 1px solid var(--color-border); border-radius: 5px; }
 p { margin: .8em 20px 0 0; }
 img { vertical-align: middle; border: 0; }
 td img { max-width: 200px; max-height: 200px; }
@@ -84,18 +84,18 @@ pre code { display: block; font-size: 100%; }
 input, textarea { box-sizing: border-box; }
 input, select { vertical-align: middle; }
 input[type="radio"] { vertical-align: text-bottom; }
-input.default { box-shadow: 1px 1px 1px #777; }
+input.default { box-shadow: 1px 1px 1px var(--color-muted); }
 input.required, input.maxlength { box-shadow: 1px 1px 1px red; }
 input.wayoff { left: -1000px; position: absolute; }
 .block { display: block; }
-.version { color: #777; font-size: 62%; }
+.version { color: var(--color-muted); font-size: 62%; }
 .js .hidden, .nojs .jsonly { display: none; }
 .js .column { position: absolute; background: var(--lit); padding: .27em 1ex .33em 0; margin-top: -.37em; border-width: 1px 1px 1px 0; border-radius: 0 8px 8px 0; }
 .nowrap td, .nowrap th, td.nowrap, p.nowrap { white-space: pre; }
 .wrap td { white-space: normal; }
-.error { color: red; background: #fee; }
+.error { color: var(--color-error-text); background: var(--color-error-bg); border: 1px solid var(--color-error-border); }
 .error b { background: var(--bg); font-weight: normal; }
-.message { color: green; background: #efe; }
+.message { color: var(--color-success-text); background: var(--color-success-bg); border: 1px solid var(--color-success-border); }
 .message table { color: var(--fg); background: var(--bg); }
 .error, .message { padding: .5em .8em; margin: 1em 20px 0 0; }
 .char { color: #007F00; }
@@ -127,7 +127,7 @@ input.wayoff { left: -1000px; position: absolute; }
 .loadmore { margin-left: 1ex; }
 /* .edit used in designs */
 #menu { position: absolute; margin: 10px 0 0; top: 2em; left: 0; width: 19em; }
-#menu p, #logins, #tables { padding: .8em 1em; margin: 0; border-bottom: 1px solid #ccc; }
+#menu p, #logins, #tables { padding: .8em 1em; margin: 0; border-bottom: 1px solid var(--color-border); }
 #logins li, #tables li { list-style: none; }
 #dbs { overflow: hidden; }
 #logins, #tables { white-space: nowrap; overflow: hidden; }
@@ -137,12 +137,12 @@ input.wayoff { left: -1000px; position: absolute; }
 #menuopen { display: none; }
 #breadcrumb { white-space: nowrap; position: absolute; top: 0; left: 21em; background: var(--dim); height: 2em; line-height: 1.8em; padding: 0 1em; margin: 0 0 0 -18px; }
 #logo { vertical-align: baseline; margin-bottom: -3px; }
-#h1 { color: #777; text-decoration: none; font-style: italic; }
+#h1 { color: var(--color-muted); text-decoration: none; font-style: italic; }
 #version { color: red; }
 #schema { margin-left: 60px; position: relative; user-select: none; -webkit-user-select: none; }
 #schema .table { border: 1px solid silver; padding: 0 2px; cursor: move; position: absolute; }
 #schema .references { position: absolute; }
-#help { position: absolute; border: 1px solid #999; background: var(--dim); padding: 5px; font-family: monospace; z-index: 1; }
+#help { position: absolute; border: 1px solid var(--color-border); background: var(--dim); padding: 5px; font-family: monospace; z-index: 1; }
 :target { background: var(--lit); }
 
 /* inlined here and not in compile.php because otherwise the development version flickers a little bit when loading the images */
