@@ -1,6 +1,8 @@
 /** @author Robert Mesaros, https://www.rmsoft.sk */
 
-html {
+/* TASK-DARK-05: dual selector supports prefers-color-scheme AND dark-switcher plugin body.dark class */
+html,
+body.dark {
 	/* Legacy variables */
 	--bg: #002240;
 	--fg: #829bb0;
@@ -22,6 +24,11 @@ html {
 	--color-error-text: #fca5a5;
 	--color-error-border: #991b1b;
 }
+
+/* TASK-DARK-02: native form control color scheme */
+input,
+select,
+textarea { color-scheme: dark; }
 
 a, a:visited { color: #618cb3; }
 a:link:hover, a:visited:hover { color: #9bc0e1; }
