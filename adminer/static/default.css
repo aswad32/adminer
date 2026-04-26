@@ -74,7 +74,11 @@ th { background: var(--color-surface-raised); text-align: left; font-weight: 600
 thead { position: sticky; top: 0; z-index: 1; }
 thead th { text-align: center; background: var(--color-surface-raised); border-bottom: 2px solid var(--color-border); }
 thead td, thead th { background: var(--color-surface-raised); }
-fieldset { display: inline; vertical-align: top; padding: .5em .8em; margin: .8em .5em 0 0; border: 1px solid var(--color-border); border-radius: 5px; }
+/* TASK-SELECT-01: Fieldset containers */
+fieldset { display: inline-block; vertical-align: top; padding: var(--space-3) var(--space-4); margin: 0 var(--space-3) var(--space-3) 0; border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: var(--shadow-sm); }
+fieldset legend { font-size: 12px; font-weight: 600; color: var(--color-muted); text-transform: uppercase; letter-spacing: 0.04em; padding: 0 var(--space-2); }
+fieldset legend a { color: var(--color-muted); text-decoration: none; cursor: pointer; }
+fieldset legend a:hover { color: var(--color-primary); }
 p { margin: .8em 20px 0 0; }
 img { vertical-align: middle; border: 0; }
 td img { max-width: 200px; max-height: 200px; }
@@ -84,7 +88,7 @@ code { font-size: 110%; padding: 1px 2px; background: var(--dim); }
 pre { margin: 1em 0 0; }
 td pre { margin: 0; }
 pre, textarea { font: 110%/1.25 monospace; }
-pre.jush { background: var(--bg); }
+pre.jush { background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-3) var(--space-4); font-family: var(--font-mono); font-size: 13px; overflow-x: auto; }
 pre code { display: block; font-size: 100%; }
 input, textarea { box-sizing: border-box; }
 input, select { vertical-align: middle; }
@@ -143,8 +147,12 @@ td i { color: var(--color-muted); font-style: italic; font-size: 12px; }
 .options select, .options input { width: 20ex; }
 .view { font-style: italic; }
 .active { font-weight: bold; }
-.sqlarea { width: 98%; }
-.sql-footer { margin-bottom: 2.5em; }
+/* TASK-SQL-01: SQL textarea */
+.sqlarea { width: 100%; min-height: 180px; box-sizing: border-box; font-family: var(--font-mono); font-size: 13px; line-height: 1.6; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); color: var(--color-text); resize: vertical; }
+.sqlarea:focus { outline: 2px solid var(--color-primary); outline-offset: -1px; border-color: var(--color-primary); }
+/* TASK-SQL-02: SQL form footer */
+.sql-footer { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-4); margin: var(--space-3) 0 var(--space-5); padding-bottom: var(--space-5); border-bottom: 1px solid var(--color-border); }
+.sql-footer label { display: inline-flex; align-items: center; gap: var(--space-2); font-size: 13px; color: var(--color-muted); cursor: pointer; }
 /* TASK-TABLE-04: Scrollable table wrapper */
 .scrollable { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-bottom: var(--space-4); }
 .scrollable table { min-width: max-content; }
@@ -162,7 +170,10 @@ td i { color: var(--color-muted); font-style: italic; font-size: 12px; }
 /* TASK-BTN-05: Form action bar */
 .footer { position: sticky; bottom: 0; margin: var(--space-6) calc(-1 * var(--space-5)) 0; box-shadow: 0 -2px 8px rgba(15,23,42,0.08); }
 .footer > div { background: var(--color-surface); padding: var(--space-3) var(--space-5); border-top: 1px solid var(--color-border); }
-.footer fieldset { margin-top: 0; }
+.footer fieldset { margin-top: 0; box-shadow: none; background: none; }
+/* TASK-SELECT-05: Footer fieldset labels */
+.footer fieldset legend { font-size: 12px; color: var(--color-muted); }
+.footer input[type="submit"] { font-size: 13px; padding: var(--space-1) var(--space-3); }
 .links a { white-space: nowrap; margin-right: 20px; }
 .logout { margin: 0; padding: var(--space-2) var(--space-4); position: absolute; top: 0; right: 0; background: var(--color-surface-raised); border-left: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); border-radius: 0 0 0 var(--radius-sm); display: flex; align-items: center; gap: var(--space-3); font-size: 13px; }
 .logout span { color: var(--color-muted); }
@@ -202,11 +213,85 @@ body:has(table.layout) #content { margin-top: 0; }
 #h1 { color: var(--color-text); text-decoration: none; font-style: normal; display: flex; align-items: center; gap: var(--space-2); }
 #logo { width: 24px; height: 24px; vertical-align: middle; margin-bottom: 0; }
 #version { color: red; }
+/* TASK-STRUCT-04: Schema diagram cards */
 #schema { margin-left: 60px; position: relative; user-select: none; -webkit-user-select: none; }
-#schema .table { border: 1px solid silver; padding: 0 2px; cursor: move; position: absolute; }
+#schema .table { border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: 0; cursor: move; position: absolute; background: var(--color-surface); box-shadow: var(--shadow-sm); min-width: 140px; font-size: 12px; }
+#schema .table a { display: block; padding: var(--space-1) var(--space-3); color: var(--color-text); text-decoration: none; border-bottom: 1px solid var(--color-border); }
+#schema .table a:last-child { border-bottom: none; }
+#schema .table a:first-child { font-weight: 600; background: var(--color-surface-raised); border-radius: var(--radius-sm) var(--radius-sm) 0 0; border-bottom: 2px solid var(--color-border); }
 #schema .references { position: absolute; }
 #help { position: absolute; border: 1px solid var(--color-border); background: var(--dim); padding: 5px; font-family: monospace; z-index: 1; }
 :target { background: var(--lit); }
+
+/* ─── Edit / Insert form (#edit-fields) ────────────────────────────────────── */
+/* TASK-EDIT-01: Edit table layout */
+#edit-fields { width: 100%; max-width: 900px; border-collapse: collapse; margin: 0 0 var(--space-5); }
+#edit-fields th, #edit-fields td { padding: var(--space-2) var(--space-3); border: 1px solid var(--color-border); vertical-align: middle; }
+#edit-fields thead th { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; font-weight: 600; color: var(--color-muted); background: var(--color-surface-raised); white-space: nowrap; }
+#edit-fields tbody tr:hover td, #edit-fields tbody tr:hover th { background: var(--dim); }
+#edit-fields tbody th { font-weight: 500; font-size: 13px; color: var(--color-text); background: var(--color-surface-raised); white-space: nowrap; min-width: 120px; max-width: 200px; }
+/* TASK-EDIT-02: Function column */
+#edit-fields td.function { text-align: right; white-space: nowrap; width: 14em; color: var(--color-muted); font-size: 12px; }
+#edit-fields td.function select { font-size: 12px; color: var(--color-muted); border-color: var(--color-border); background: var(--color-surface); max-width: 12em; }
+/* TASK-EDIT-03: Input cells */
+#edit-fields tbody td:last-child { width: 100%; }
+#edit-fields tbody td:last-child input[type="text"],
+#edit-fields tbody td:last-child input[type="number"],
+#edit-fields tbody td:last-child textarea { width: 100%; min-width: 240px; }
+#edit-fields textarea { font-family: var(--font-mono); font-size: 13px; resize: vertical; min-height: 80px; }
+/* TASK-EDIT-04: Enum/set labels */
+#edit-fields label { display: inline-flex; align-items: center; gap: var(--space-1); margin-right: var(--space-3); font-size: 13px; cursor: pointer; }
+/* TASK-EDIT-05: Form action buttons bar */
+#form-edit > p, form > p.submit { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; margin-top: var(--space-4); padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
+
+/* ─── SQL command screen ────────────────────────────────────────────────────── */
+/* TASK-SQL-03: Inline query display */
+p > code.jush-sql,
+p > code[class^="jush-"] { display: inline-block; font-family: var(--font-mono); font-size: 12px; background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-sm); padding: var(--space-1) var(--space-2); max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; vertical-align: middle; }
+/* TASK-SQL-04: Query history panel */
+#history { margin-top: var(--space-5); padding-top: var(--space-4); border-top: 1px solid var(--color-border); }
+#history a.toggle { font-size: 13px; color: var(--color-primary); cursor: pointer; text-decoration: none; }
+#history a.toggle:hover { text-decoration: underline; }
+#history .hidden { display: none; }
+#history pre code { display: block; font-family: var(--font-mono); font-size: 12px; padding: var(--space-3); background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: var(--radius-sm); overflow-x: auto; white-space: pre; }
+
+/* ─── Select / Browse filter bar ────────────────────────────────────────────── */
+/* TASK-SELECT-02: Fieldset inner divs */
+fieldset > div { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; }
+fieldset > div > div { display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-1); }
+/* TASK-SELECT-03: Size inputs */
+input.size { width: 7ex; text-align: right; padding: var(--space-1) var(--space-2); }
+/* TASK-SELECT-04: No-index indicator */
+#noindex { display: inline-block; width: 10px; height: 10px; border-radius: 50%; background: transparent; transition: background 0.2s; }
+#noindex[title]:not([title=""]) { background: var(--color-error-text); cursor: help; }
+/* TASK-SELECT-06: Links bar above table */
+p.links { margin: 0 0 var(--space-4); display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; font-size: 13px; }
+p.links a { color: var(--color-primary); text-decoration: none; padding: var(--space-1) var(--space-2); border-radius: var(--radius-sm); transition: background 0.1s; }
+p.links a:hover { background: var(--color-surface-raised); text-decoration: none; }
+p.links a.active { font-weight: 600; background: var(--lit); }
+
+/* ─── Table structure / Alter table ─────────────────────────────────────────── */
+/* TASK-STRUCT-01: Structure table badges */
+.nowrap.odds th:first-child { min-width: 150px; font-weight: 500; color: var(--color-text); }
+.nowrap.odds td:first-child { font-family: var(--font-mono); font-size: 12px; color: var(--color-muted); }
+.nowrap.odds td i { color: var(--color-muted); font-style: normal; font-size: 11px; background: var(--color-surface-raised); border: 1px solid var(--color-border); border-radius: 3px; padding: 1px 4px; margin-left: 4px; }
+.nowrap.odds td b { font-weight: normal; font-family: var(--font-mono); font-size: 11px; color: var(--color-primary); }
+/* TASK-STRUCT-02: Column editor selects/inputs */
+#edit-fields select[name*="[type]"] { min-width: 120px; font-family: var(--font-mono); font-size: 12px; }
+#edit-fields input[name*="[length]"] { width: 8ex; text-align: right; }
+#edit-fields td:last-child label { white-space: nowrap; font-size: 12px; color: var(--color-muted); }
+/* TASK-STRUCT-03: Index column picker */
+table select[name*="[columns]"] { min-width: 120px; }
+
+/* ─── Export / Import ────────────────────────────────────────────────────────── */
+/* TASK-DUMP-01: Export fieldsets */
+#dump fieldset { display: inline-block; vertical-align: top; min-width: 160px; margin: 0 var(--space-4) var(--space-4) 0; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-border); border-radius: var(--radius-md); background: var(--color-surface); box-shadow: none; }
+#dump fieldset legend { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-muted); padding: 0 var(--space-2); }
+/* TASK-DUMP-02: Radio/checkbox option lists */
+#dump label { display: flex; align-items: center; gap: var(--space-2); padding: var(--space-1) 0; font-size: 13px; cursor: pointer; color: var(--color-text); }
+#dump label:hover { color: var(--color-primary); }
+/* TASK-DUMP-04: File input */
+input[type="file"] { font-size: 13px; color: var(--color-muted); }
 
 /* inlined here and not in compile.php because otherwise the development version flickers a little bit when loading the images */
 .icon-up { background-image: url(data:image/gif;base64,R0lGODlhEgASAIEAMe7u7gAAgJmZmQAAACH5BAEAAAEALAAAAAASABIAAQIghI+py+0PTQhRTgrvfRP0nmEVOIoReZphxbauAMfyHBcAOw==); }
