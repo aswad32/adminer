@@ -1,10 +1,26 @@
 /** @author Robert Mesaros, https://www.rmsoft.sk */
 
 html {
+	/* Legacy variables */
 	--bg: #002240;
 	--fg: #829bb0;
 	--dim: #154269;
 	--lit: #011d35;
+
+	/* New tokens — dark overrides */
+	--color-surface: #011d35;
+	--color-surface-raised: #0c2d4a;
+	--color-border: #1a4570;
+	--color-text: #c8d8e8;
+	--color-muted: #5e8ab0;
+	--color-primary: #3b82f6;
+	--color-primary-hover: #60a5fa;
+	--color-success-bg: #052e16;
+	--color-success-text: #86efac;
+	--color-success-border: #166534;
+	--color-error-bg: #450a0a;
+	--color-error-text: #fca5a5;
+	--color-error-border: #991b1b;
 }
 
 a, a:visited { color: #618cb3; }
