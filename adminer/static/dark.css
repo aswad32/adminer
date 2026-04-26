@@ -37,9 +37,9 @@ pre.jush { background: #11385a; }
 input.default { box-shadow: 1px 1px 1px #888; }
 input.required, input.maxlength { box-shadow: 1px 1px 1px red; }
 .version { color: #888; }
-.error { color: red; background: #efdada; border: 1px solid #e76f6f; }
-.error b { background: #efeaea; }
-.message { color: #0b860b; background: #efe; border: 1px solid #7fbd7f; }
+.error { color: var(--color-error-text); background: var(--color-error-bg); border: 1px solid var(--color-error-border); }
+.error b { background: var(--color-surface); }
+.message { color: var(--color-success-text); background: var(--color-success-bg); border: 1px solid var(--color-success-border); }
 .char { color: #a949a9; }
 .date { color: #59c159; }
 .enum { color: #d55c5c; }
