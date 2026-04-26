@@ -129,12 +129,27 @@ input.wayoff { left: -1000px; position: absolute; }
 #menu { position: absolute; margin: 0; top: 0; left: 0; width: 19em; height: 100%; background: var(--color-surface); border-right: 1px solid var(--color-border); box-shadow: var(--shadow-sm); overflow-y: auto; }
 #menu p, #logins, #tables { padding: .8em 1em; margin: 0; border-bottom: 1px solid var(--color-border); }
 #logins li, #tables li { list-style: none; }
-#dbs { overflow: hidden; }
+#dbs { overflow: hidden; padding: var(--space-2) 0; border-bottom: 1px solid var(--color-border); font-size: 13px; }
 #logins, #tables { white-space: nowrap; overflow: hidden; }
 #logins a, #tables a, #tables span { background: var(--bg); }
+/* TASK-NAV-01: Table list */
+#tables { white-space: nowrap; overflow: hidden; padding: var(--space-2) 0; margin: 0; border-bottom: 1px solid var(--color-border); }
+#tables li { list-style: none; }
+#tables a,
+#tables span { display: block; padding: var(--space-1) var(--space-4); font-size: 13px; color: var(--color-text); text-decoration: none; background: var(--color-surface); border-radius: 0; transition: background 0.1s; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#tables a:hover { background: var(--color-surface-raised); color: var(--color-primary); text-decoration: none; }
+#tables .active { font-weight: 600; color: var(--color-primary); background: var(--lit); }
+/* TASK-NAV-02: Sidebar action links */
+#menu .links { padding: var(--space-3) var(--space-4); margin: 0; border-bottom: 1px solid var(--color-border); display: flex; flex-direction: column; gap: var(--space-1); }
+#menu .links a { display: block; padding: var(--space-2) var(--space-3); font-size: 13px; color: var(--color-text); border-radius: var(--radius-sm); text-decoration: none; transition: background 0.1s; white-space: nowrap; margin-right: 0; }
+#menu .links a:hover { background: var(--color-surface-raised); color: var(--color-primary); }
+#menu .links a.active { font-weight: 600; color: var(--color-primary); background: var(--lit); }
 #content { margin: 2.5em 0 0 21em; padding: var(--space-5) var(--space-6) var(--space-6) var(--space-5); }
-#lang { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); font-size: 13px; }
-#menuopen { display: none; }
+#lang { padding: var(--space-3) var(--space-4); border-bottom: 1px solid var(--color-border); font-size: 12px; }
+#lang select { font-size: 12px; border: 1px solid var(--color-border); border-radius: var(--radius-sm); background: var(--color-surface); color: var(--color-text); padding: 2px var(--space-2); }
+/* TASK-NAV-05: Mobile hamburger */
+#menuopen { display: none; padding: var(--space-2); border-radius: var(--radius-sm); cursor: pointer; transition: background 0.15s; }
+#menuopen:hover { background: var(--color-surface-raised); }
 #breadcrumb { white-space: nowrap; position: absolute; top: 0; left: 21em; background: var(--color-surface-raised); border-bottom: 1px solid var(--color-border); height: 2.5em; line-height: 2.5em; padding: 0 var(--space-5); margin: 0; font-size: 13px; color: var(--color-muted); }
 #breadcrumb a { color: var(--color-muted); text-decoration: none; }
 #breadcrumb a:hover { color: var(--color-primary); }
