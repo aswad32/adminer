@@ -153,6 +153,129 @@ input.wayoff { left: -1000px; position: absolute; }
 .icon-move { background-image: url(data:image/gif;base64,R0lGODlhEgASAJEAAO7u7gAAAJmZmQAAACH5BAEAAAEALAAAAAASABIAAAIfhI+py+3vgpyU0Rug3gnX5U3cqIWSZZLqigjuC8dvAQA7); }
 #schema .arrow { height: 1.25em; background: url(data:image/gif;base64,R0lGODlhCAAKAIAAAICAgP///yH5BAEAAAEALAAAAAAIAAoAAAIPBIJplrGLnpQRqtOy3rsAADs=) no-repeat right center; }
 
+/* ─── Login screen (table.layout only appears on the login page) ──────────── */
+
+/* TASK-LOGIN-01: Login card */
+table.layout {
+    display: block;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-6);
+    margin: var(--space-6) auto;
+    max-width: 380px;
+    border-spacing: 0;
+}
+table.layout tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: var(--space-4);
+}
+table.layout th {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    padding: 0 0 var(--space-1) 0;
+    border: none;
+    background: none;
+}
+table.layout td {
+    padding: 0;
+    border: none;
+}
+table.layout input,
+table.layout select {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    font-family: var(--font-body);
+    background: var(--color-surface);
+    color: var(--color-text);
+    box-sizing: border-box;
+}
+table.layout input:focus,
+table.layout select:focus {
+    outline: 2px solid var(--color-primary);
+    outline-offset: -1px;
+    border-color: var(--color-primary);
+}
+
+/* TASK-LOGIN-02: Login submit button — full width below the card */
+table.layout + p {
+    max-width: 380px;
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+}
+table.layout + p > input[type="submit"] {
+    width: 100%;
+    display: block;
+    padding: var(--space-2) var(--space-5);
+    background: var(--color-primary);
+    color: #fff;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    font-size: var(--font-size-base);
+    font-family: var(--font-body);
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+    margin-top: var(--space-2);
+}
+table.layout + p > input[type="submit"]:hover {
+    background: var(--color-primary-hover);
+    border-color: var(--color-primary-hover);
+}
+table.layout + p > input[type="submit"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* TASK-LOGIN-03: Permanent login checkbox */
+table.layout ~ label {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    max-width: 380px;
+    margin: var(--space-3) auto 0;
+    padding: 0 var(--space-6);
+    font-size: 13px;
+    color: var(--color-muted);
+    cursor: pointer;
+}
+table.layout ~ label input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+}
+
+/* TASK-LOGIN-04: Sidebar session list */
+#logins {
+    padding: var(--space-3) var(--space-4);
+    border-bottom: 1px solid var(--color-border);
+}
+#logins li {
+    list-style: none;
+    padding: var(--space-1) 0;
+}
+#logins a {
+    display: block;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-size: 13px;
+    background: var(--bg);
+    transition: background 0.15s;
+}
+#logins a:hover {
+    background: var(--color-surface-raised);
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
 .rtl h2 { margin: 0 -18px 20px 0; }
 .rtl p, .rtl table, .rtl .error, .rtl .message { margin: 1em 0 0 20px; }
 .rtl .logout { left: 0; right: auto; }
