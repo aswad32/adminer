@@ -93,10 +93,12 @@ class Adminer {
 	}
 
 	function loginForm() {
-		echo "<table class='layout'>\n";
-		echo adminer()->loginFormField('username', '<tr><th>' . lang('Username') . '<td>', input_hidden("auth[driver]", "server") . '<input name="auth[username]" autofocus value="' . h($_GET["username"]) . '" autocomplete="username" autocapitalize="off">');
-		echo adminer()->loginFormField('password', '<tr><th>' . lang('Password') . '<td>', '<input type="password" name="auth[password]" autocomplete="current-password">');
-		echo "</table>\n";
+		echo "<div class='login-fields'>\n";
+		$f = adminer()->loginFormField('username', '<label>' . lang('Username') . '</label>', input_hidden("auth[driver]", "server") . '<input name="auth[username]" autofocus value="' . h($_GET["username"]) . '" autocomplete="username" autocapitalize="off">');
+		if ($f) echo "<div class='login-row'>$f</div>\n";
+		$f = adminer()->loginFormField('password', '<label>' . lang('Password') . '</label>', '<input type="password" name="auth[password]" autocomplete="current-password">');
+		if ($f) echo "<div class='login-row'>$f</div>\n";
+		echo "</div>\n";
 		echo "<p><input type='submit' value='" . lang('Login') . "'>\n";
 		echo checkbox("auth[permanent]", 1, $_COOKIE["adminer_permanent"], lang('Permanent login')) . "\n";
 	}

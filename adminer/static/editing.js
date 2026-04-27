@@ -108,10 +108,10 @@ function messagesPrint(parent) {
 * @param HTMLSelectElement
 */
 function loginDriver(driver) {
-	const trs = parentTag(driver, 'table').rows;
+	const serverRow = qs('#login-row-server');
 	const disabled = /sqlite/.test(selectValue(driver));
-	alterClass(trs[1], 'hidden', disabled);	// 1 - row with server
-	trs[1].getElementsByTagName('input')[0].disabled = disabled;
+	alterClass(serverRow, 'hidden', disabled);
+	serverRow.getElementsByTagName('input')[0].disabled = disabled;
 }
 
 
