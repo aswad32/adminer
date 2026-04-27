@@ -29,99 +29,115 @@ This is the master checklist of all UI modernization tasks. Work should proceed 
 
 ### Phase 1 — Foundation (must complete before visual changes)
 
-- [ ] **TASK-CSS-01** Define expanded CSS variable set on `html {}`
-- [ ] **TASK-CSS-02** Update `body {}` typography
-- [ ] **TASK-CSS-03** Update `dark.css` dark token overrides
-- [ ] **TASK-CSS-04** Migrate hard-coded colors to tokens
+- [x] **TASK-CSS-01** Define expanded CSS variable set on `html {}` _(merged: PR #44)_
+- [x] **TASK-CSS-02** Update `body {}` typography _(merged: PR #44)_
+- [x] **TASK-CSS-03** Update `dark.css` dark token overrides _(merged: PR #44)_
+- [x] **TASK-CSS-04** Migrate hard-coded colors to tokens _(merged: PR #44)_
 
 ### Phase 2 — Login + Global Shell
 
-- [ ] **TASK-LOGIN-01** Center the login card
-- [ ] **TASK-LOGIN-02** Style the Login button (links to TASK-BTN-01)
-- [ ] **TASK-LOGIN-03** Style the Permanent login checkbox
-- [ ] **TASK-LOGIN-04** Improve sidebar login session list
-- [ ] **TASK-LAYOUT-01** Sidebar visual refresh
-- [ ] **TASK-LAYOUT-02** Header / logo area
-- [ ] **TASK-LAYOUT-03** Breadcrumb bar
-- [ ] **TASK-LAYOUT-04** Content area spacing
-- [ ] **TASK-LAYOUT-05** Page title (h2)
-- [ ] **TASK-LAYOUT-06** Flash messages (.message, .error)
-- [ ] **TASK-LAYOUT-07** Logout area
-- [ ] **TASK-LAYOUT-08** Mobile layout (≤800px)
+- [x] **TASK-LOGIN-01** Center the login card _(merged: PR #46)_
+- [x] **TASK-LOGIN-02** Style the Login button _(merged: PR #46)_
+- [x] **TASK-LOGIN-03** Style the Permanent login checkbox _(merged: PR #46)_
+- [x] **TASK-LOGIN-04** Improve sidebar login session list _(merged: PR #46)_
+- [x] **TASK-LAYOUT-01** Sidebar visual refresh _(merged: PR #47)_
+- [x] **TASK-LAYOUT-02** Header / logo area _(merged: PR #47)_
+- [x] **TASK-LAYOUT-03** Breadcrumb bar _(merged: PR #47)_
+- [x] **TASK-LAYOUT-04** Content area spacing _(merged: PR #47)_
+- [x] **TASK-LAYOUT-05** Page title (h2) _(merged: PR #47)_
+- [x] **TASK-LAYOUT-06** Flash messages (.message, .error) _(merged: PR #48)_
+- [x] **TASK-LAYOUT-07** Logout area _(merged: PR #48)_
+- [x] **TASK-LAYOUT-08** Mobile layout (≤800px) _(merged: PR #53)_
 
 ### Phase 3 — Navigation
 
-- [ ] **TASK-NAV-01** Table list items
-- [ ] **TASK-NAV-02** Sidebar action links
-- [ ] **TASK-NAV-03** Database list (#dbs)
-- [ ] **TASK-NAV-04** Language switcher (#lang)
-- [ ] **TASK-NAV-05** Mobile hamburger button
+- [x] **TASK-NAV-01** Table list items _(merged: PR #49)_
+- [x] **TASK-NAV-02** Sidebar action links _(merged: PR #49)_
+- [x] **TASK-NAV-03** Database list (#dbs) _(merged: PR #49)_
+- [x] **TASK-NAV-04** Language switcher (#lang) _(merged: PR #49)_
+- [x] **TASK-NAV-05** Mobile hamburger button _(merged: PR #53)_
 
 ### Phase 4 — Controls
 
-- [ ] **TASK-BTN-01** Primary submit button
-- [ ] **TASK-BTN-02** Danger / destructive button variants
-- [ ] **TASK-BTN-03** Secondary / neutral buttons
-- [ ] **TASK-BTN-04** Icon buttons (.icon)
-- [ ] **TASK-BTN-05** Form action bar (.footer)
-- [ ] **TASK-BTN-06** Text inputs and selects (global)
+- [x] **TASK-BTN-01** Primary submit button _(merged: PR #50)_
+- [x] **TASK-BTN-02** Danger / destructive button variants _(merged: PR #50)_
+- [x] **TASK-BTN-03** Secondary / neutral buttons _(merged: PR #50)_
+- [x] **TASK-BTN-04** Icon buttons (.icon) _(merged: PR #50)_
+- [x] **TASK-BTN-05** Form action bar (.footer) _(merged: PR #50)_
+- [x] **TASK-BTN-06** Text inputs and selects (global) _(merged: PR #50)_
 
 ### Phase 5 — Data Tables
 
-- [ ] **TASK-TABLE-01** Base table reset and spacing
-- [ ] **TASK-TABLE-02** Column headers (th, thead)
-- [ ] **TASK-TABLE-03** Row hover and selection states
-- [ ] **TASK-TABLE-04** Scrollable table wrapper
-- [ ] **TASK-TABLE-05** Null / special value display
-- [ ] **TASK-TABLE-06** Pagination
-- [ ] **TASK-TABLE-07** Nested tables (td table)
-- [ ] **TASK-TABLE-08** Time display (.time)
+- [x] **TASK-TABLE-01** Base table reset and spacing _(merged: PR #51)_
+- [x] **TASK-TABLE-02** Column headers (th, thead) _(merged: PR #51)_
+- [x] **TASK-TABLE-03** Row hover and selection states _(merged: PR #51)_
+- [x] **TASK-TABLE-04** Scrollable table wrapper _(merged: PR #51)_
+- [x] **TASK-TABLE-05** Null / special value display _(merged: PR #51)_
+- [x] **TASK-TABLE-06** Pagination _(merged: PR #51)_
+- [x] **TASK-TABLE-07** Nested tables (td table) _(merged: PR #51)_
+- [x] **TASK-TABLE-08** Time display (.time) _(merged: PR #51)_
 
 ### Phase 6 — Per-Screen Polish
 
-- [ ] **TASK-EDIT-01** Edit table layout
-- [ ] **TASK-EDIT-02** Function column styling
-- [ ] **TASK-EDIT-03** Input cells
-- [ ] **TASK-EDIT-04** Enum/set radio+checkbox
-- [ ] **TASK-EDIT-05** Form action buttons
-- [ ] **TASK-SQL-01** SQL textarea
-- [ ] **TASK-SQL-02** SQL form footer
-- [ ] **TASK-SQL-03** Query result display
-- [ ] **TASK-SQL-04** Query history panel
-- [ ] **TASK-SELECT-01** Fieldset container styling
-- [ ] **TASK-SELECT-02** Fieldset inner div
-- [ ] **TASK-SELECT-03** .size inputs
-- [ ] **TASK-SELECT-04** No-index warning
-- [ ] **TASK-SELECT-05** Action bar below data table
-- [ ] **TASK-SELECT-06** Links bar
-- [ ] **TASK-STRUCT-01** Structure table column widths
-- [ ] **TASK-STRUCT-02** Column editor table (alter table)
-- [ ] **TASK-STRUCT-03** Index table
-- [ ] **TASK-STRUCT-04** Schema table cards (ER diagram)
-- [ ] **TASK-DUMP-01** Export fieldset groups
-- [ ] **TASK-DUMP-02** Radio/checkbox option lists
-- [ ] **TASK-DUMP-04** Import file input
+- [x] **TASK-EDIT-01** Edit table layout _(PR #52)_
+- [x] **TASK-EDIT-02** Function column styling _(PR #52)_
+- [x] **TASK-EDIT-03** Input cells _(PR #52)_
+- [x] **TASK-EDIT-04** Enum/set radio+checkbox _(PR #52)_
+- [x] **TASK-EDIT-05** Form action buttons _(PR #52)_
+- [x] **TASK-SQL-01** SQL textarea _(PR #52)_
+- [x] **TASK-SQL-02** SQL form footer _(PR #52)_
+- [x] **TASK-SQL-03** Query result display _(PR #52)_
+- [x] **TASK-SQL-04** Query history panel _(PR #52)_
+- [x] **TASK-SELECT-01** Fieldset container styling _(PR #52)_
+- [x] **TASK-SELECT-02** Fieldset inner div _(PR #52)_
+- [x] **TASK-SELECT-03** .size inputs _(PR #52)_
+- [x] **TASK-SELECT-04** No-index warning _(PR #52)_
+- [x] **TASK-SELECT-05** Action bar below data table _(PR #52)_
+- [x] **TASK-SELECT-06** Links bar _(PR #52)_
+- [x] **TASK-STRUCT-01** Structure table column widths _(PR #52)_
+- [x] **TASK-STRUCT-02** Column editor table (alter table) _(PR #52)_
+- [x] **TASK-STRUCT-03** Index table _(PR #52)_
+- [x] **TASK-STRUCT-04** Schema table cards (ER diagram) _(PR #52)_
+- [x] **TASK-DUMP-01** Export fieldset groups _(PR #52)_
+- [x] **TASK-DUMP-02** Radio/checkbox option lists _(PR #52)_
+- [x] **TASK-DUMP-04** Import file input _(PR #52)_
 
 ### Phase 7 — Responsive + Dark Mode
 
-- [ ] **TASK-RESP-01** Improved mobile sidebar overlay
-- [ ] **TASK-RESP-02** Touch targets
-- [ ] **TASK-RESP-03** Responsive breadcrumb
-- [ ] **TASK-RESP-04** Responsive tables
-- [ ] **TASK-RESP-05** Responsive logout area
-- [ ] **TASK-DARK-01** New token dark overrides
-- [ ] **TASK-DARK-02** Dark mode form controls
-- [ ] **TASK-DARK-03** Dark mode icon inversion (verify)
-- [ ] **TASK-DARK-04** Dark mode schema diagram
-- [ ] **TASK-DARK-05** Body class dark toggle compatibility
+- [x] **TASK-RESP-01** Improved mobile sidebar overlay _(PR #53)_
+- [x] **TASK-RESP-02** Touch targets _(PR #53)_
+- [x] **TASK-RESP-03** Responsive breadcrumb _(PR #53)_
+- [x] **TASK-RESP-04** Responsive tables _(PR #53)_
+- [x] **TASK-RESP-05** Responsive logout area _(PR #53)_
+- [x] **TASK-DARK-01** New token dark overrides _(PR #53)_
+- [x] **TASK-DARK-02** Dark mode form controls _(PR #53)_
+- [x] **TASK-DARK-03** Dark mode icon inversion (verify) _(PR #53)_
+- [x] **TASK-DARK-04** Dark mode schema diagram _(PR #53)_
+- [x] **TASK-DARK-05** Body class dark toggle compatibility _(PR #53)_
+
+### Phase 8 — PHP HTML Layer
+
+- [ ] **TASK-PHP-01** Login page wrapper — add `.login-page-inner` and `.login-heading` in `auth.inc.php`
+- [ ] **TASK-PHP-02** Login form subtitle — add subtitle `<p>` before `<table class='layout'>` in `loginForm()` (`adminer.inc.php` + editor mirror)
+- [ ] **TASK-PHP-03** Topbar wrapper — wrap `#menuopen` + `#breadcrumb` in `<div class="topbar">` in `page_header()` (`design.inc.php`)
+- [ ] **TASK-PHP-04** Page messages wrapper — wrap `.message`/`.error` output in `<div class="page-messages">` (`design.inc.php`)
+- [ ] **TASK-PHP-05** Sidebar nav sections — add `<div class="nav-section">` grouping wrappers in `navigation()` (`adminer.inc.php` + editor mirror)
 
 ---
 
 ## Implementation Rules
 
-All tasks are CSS-only unless explicitly noted otherwise.
+CSS changes are always preferred. PHP changes are limited to **additive HTML wrapper elements only** — no logic, form fields, URLs, or behavior may change.
 
-When a task says "PHP change acceptable," the allowed PHP change is limited to adding a CSS `class` attribute to a single HTML element. No logic, form fields, URLs, or behavior may change.
+Allowed PHP changes:
+- Add new wrapper `<div>`, `<section>`, or `<header>` elements around existing output
+- Add new heading or label elements before/after existing output
+- Add `class` attributes to existing elements for CSS targeting
+
+Never touch in PHP:
+- Form field names, `action`/`method` attributes, hidden inputs
+- JS-locked elements: `<table class="layout">` row order, `#foot > #menu` hierarchy, `<form id="form">`, `<table id="table">`, `<table id="edit-fields">` column indices, `<span id="selected">` inside `<legend>`
+- Any existing `id` or `class` attribute (renaming or removal)
 
 Before marking any task complete:
 1. Verify the changed element still submits the correct form data
@@ -134,14 +150,11 @@ Before marking any task complete:
 
 ## Files Modified by This Project
 
-Only these files should be modified:
-
 | File | Change type |
 |---|---|
 | `adminer/static/default.css` | CSS additions/modifications |
 | `adminer/static/dark.css` | CSS additions/modifications |
-
-Optionally (minimal PHP-class additions only):
-| File | Change type |
-|---|---|
-| `adminer/edit.inc.php` | Add `class="danger"` to delete button only |
+| `adminer/include/auth.inc.php` | Additive HTML wrapper elements only |
+| `adminer/include/adminer.inc.php` | Additive HTML wrapper elements only |
+| `adminer/include/design.inc.php` | Additive HTML wrapper elements only |
+| `editor/include/adminer.inc.php` | Mirror of all changes to `adminer/include/adminer.inc.php` |

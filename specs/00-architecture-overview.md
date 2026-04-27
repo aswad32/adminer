@@ -138,3 +138,45 @@ These IDs and classes are referenced by PHP logic, existing JavaScript, or desig
 | `.sqlarea` | Full-width SQL textarea |
 | `.layout` | Login form table |
 | `form#form` | Main select/search form |
+
+---
+
+## JS-Locked Elements — Never Restructure
+
+These elements have hardcoded positions or IDs referenced by JS. Wrapping them in a way that changes their DOM position, or changing their tag, will break functionality:
+
+| Element | JS dependency | Why it breaks |
+|---|---|---|
+| `<table class="layout">` rows | `loginDriver()` — `parentTag(driver, 'table').rows[1]` | Server row index is hardcoded to `.rows[1]`; inserting a row above it shifts the index |
+| `#foot > #menu` | `menuOpen` — toggles `foot` class on `#foot` | `#menu` must be a direct child of `#foot`; intermediate wrapper breaks the selector |
+| `<form id="form">` | JS assigns `.onsubmit` by ID | Handler binds directly to this form element |
+| `<table id="table">` | `selectLoadMore` — appends `<tbody>` rows via direct DOM reference | Adding tables before it confuses `qsl('table')` last-table selector |
+| `<table id="edit-fields">` | `columnShow()` — hides `<td>` by index position | TD index positions are hardcoded; adding a column before shifts all indices |
+| `<span id="selected">` inside `<legend>` | `selectCount()` — traverses `.parentNode.parentNode` | The span must remain exactly 2 levels deep from the fieldset's submit buttons |
+
+---
+
+## PHP UI Methods — Safe to Modify
+
+These methods may receive additive HTML wrapper elements (new `<div>` wrappers, headings, or semantic containers **around** existing output). Existing elements, IDs, classes, and output order must not change.
+
+| Method | File | Safe additions |
+|---|---|---|
+| `loginForm()` | `adminer/include/adminer.inc.php` | Add content before `<table class='layout'>` — the table itself and its rows must stay unchanged |
+| `navigation()` | `adminer/include/adminer.inc.php` | Add wrapper `<div>` around logical groups; existing `<h1>`, `#logins`, `#tables` stay as-is |
+| `tablesPrint()` | `adminer/include/adminer.inc.php` | Add outer wrapper around `<ul id='tables'>` |
+| `page_header()` | `adminer/include/design.inc.php` | Add `<div class="topbar">` wrapping `#menuopen` + `#breadcrumb`; add message wrapper |
+| `page_footer()` | `adminer/include/design.inc.php` | Must keep `#foot > #menu` direct hierarchy |
+| `auth_error()` | `adminer/include/auth.inc.php` | Add wrapper and heading elements around the `<form>` |
+
+---
+
+## Editor Mirror Rule
+
+The file `adminer/include/adminer.inc.php` contains this comment at the top:
+
+```
+// any method change in this file should be transferred to editor/include/adminer.inc.php
+```
+
+**This must be followed for all UI changes.** Every structural addition made to a method in `adminer/include/adminer.inc.php` must be identically applied to the corresponding method in `editor/include/adminer.inc.php`. The editor variant may override some methods; apply the equivalent wrapper addition there too.
