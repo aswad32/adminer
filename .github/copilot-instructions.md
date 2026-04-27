@@ -64,13 +64,53 @@ Use a safe, incremental approach.
 Priority order:
 
 1. CSS-first modernization
-2. Add wrapper classes around existing markup
+2. Add new wrapper `<div>` elements in PHP output methods — purely additive, no restructuring
 3. Improve spacing, typography, buttons, forms, and tables
 4. Refactor repeated UI output into small PHP helper functions only when safe
 5. Improve one screen at a time
 6. Avoid large-scale structural changes
 
 Prefer small, reviewable pull requests.
+
+---
+
+## PHP HTML Layer Rules
+
+PHP output files may now be modified for UI purposes. These rules apply to all PHP changes:
+
+### What is allowed
+
+- Add new wrapper elements (`<div>`, `<section>`, `<header>`) **around** existing output — purely additive
+- Add new heading or label elements before or after existing output
+- Add `class` attributes to existing elements for CSS targeting
+- Add `<div>` wrappers in `page_header()`, `page_footer()`, `loginForm()`, `navigation()`, `tablesPrint()`
+
+### What is not allowed
+
+- Do not restructure or reorder any existing element
+- Do not remove any existing element
+- Do not change tag type of any existing element (e.g. `<p>` → `<div>`)
+- Do not rename or remove any existing `id` or `class` attribute
+- Do not touch form field names, hidden inputs, or form structure
+
+### JS-locked elements — never restructure these
+
+The following elements are directly referenced by JS and must not be moved, wrapped in a way that changes their position in the DOM tree, or have their tag changed:
+
+| Element | Reason |
+|---|---|
+| `<table class="layout">` rows | `loginDriver()` uses `.rows[1]` — server row index is hardcoded |
+| `#foot > #menu` | `.classList.toggle('foot')` on `#foot`; `#menu` must be a direct child |
+| `<form id="form">` | JS assigns `.onsubmit` directly |
+| `<table id="table">` | `selectLoadMore` appends `<tbody>` rows directly |
+| `<table id="edit-fields">` | `columnShow()` hides columns by TD index |
+| `<span id="selected">` inside `<legend>` | `selectCount()` traverses `.parentNode.parentNode` to reach submit buttons |
+
+### Editor mirror rule
+
+**Every method change made to `adminer/include/adminer.inc.php` must also be applied to `editor/include/adminer.inc.php`.**
+
+This is enforced by the in-file comment at the top of both files. The editor variant may override some methods; apply the equivalent structural change there too.
 
 ---
 
