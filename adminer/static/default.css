@@ -351,39 +351,25 @@ input[type="file"] { font-size: 13px; color: var(--color-muted); }
 
 /* ─── Login screen ─────────────────────────────────────────────────────────── */
 
-/* TASK-LOGIN-01: Login form fields — no card, clean stacked layout */
-table.layout {
-    display: block;
-    background: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-    margin: 0 auto var(--space-4);
-    max-width: 420px;
+/* TASK-LOGIN-01: Login form fields — div-based, clean stacked layout */
+.login-fields {
     width: 100%;
-    border-spacing: 0;
+    margin: 0 0 var(--space-4);
 }
-table.layout tr {
+.login-row {
     display: flex;
     flex-direction: column;
     margin-bottom: var(--space-4);
 }
-table.layout th {
+.login-row label {
+    display: block;
     font-size: 13px;
     font-weight: 500;
     color: var(--color-text);
     padding: 0 0 var(--space-2) 0;
-    border: none;
-    background: none;
-    letter-spacing: 0;
-    text-transform: none;
 }
-table.layout td {
-    padding: 0;
-    border: none;
-}
-table.layout input,
-table.layout select {
+.login-fields input,
+.login-fields select {
     width: 100%;
     padding: 10px var(--space-3);
     border: 1px solid var(--color-border);
@@ -395,21 +381,20 @@ table.layout select {
     box-sizing: border-box;
     transition: border-color 0.15s, outline 0.15s;
 }
-table.layout input:focus,
-table.layout select:focus {
+.login-fields input:focus,
+.login-fields select:focus {
     outline: 2px solid var(--color-primary);
     outline-offset: -1px;
     border-color: var(--color-primary);
 }
 
 /* TASK-LOGIN-02: Submit button — full width, tall, below fields */
-table.layout + p {
-    max-width: 420px;
+.login-fields + p {
     width: 100%;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
 }
-table.layout + p > input[type="submit"] {
+.login-fields + p > input[type="submit"] {
     width: 100%;
     display: block;
     padding: 12px var(--space-5);
@@ -424,28 +409,27 @@ table.layout + p > input[type="submit"] {
     transition: background 0.15s;
     margin-top: var(--space-2);
 }
-table.layout + p > input[type="submit"]:hover {
+.login-fields + p > input[type="submit"]:hover {
     background: var(--color-primary-hover);
 }
-table.layout + p > input[type="submit"]:focus-visible {
+.login-fields + p > input[type="submit"]:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
 }
 
 /* TASK-LOGIN-03: Permanent login checkbox */
-table.layout ~ label {
+.login-fields ~ label {
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    max-width: 420px;
     width: 100%;
-    margin: var(--space-3) auto 0;
+    margin: var(--space-3) 0 0;
     padding: 0;
     font-size: 13px;
     color: var(--color-muted);
     cursor: pointer;
 }
-table.layout ~ label input[type="checkbox"] {
+.login-fields ~ label input[type="checkbox"] {
     width: auto;
     margin: 0;
 }
