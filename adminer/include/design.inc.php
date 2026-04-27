@@ -161,6 +161,10 @@ function get_nonce(): string {
 function page_messages(string $error): void {
 	$uri = preg_replace('~^[^?]*~', '', $_SERVER["REQUEST_URI"]);
 	$messages = idx($_SESSION["messages"], $uri);
+	$has_messages = ($messages || $error || adminer()->error);
+	if ($has_messages) {
+		echo "<div class='page-messages'>\n";
+	}
 	if ($messages) {
 		echo "<div class='message'>" . implode("</div>\n<div class='message'>", $messages) . "</div>" . script("messagesPrint();");
 		unset($_SESSION["messages"][$uri]);
@@ -170,6 +174,9 @@ function page_messages(string $error): void {
 	}
 	if (adminer()->error) { // separate <div>
 		echo "<div class='error'>" . adminer()->error . "</div>\n";
+	}
+	if ($has_messages) {
+		echo "</div>\n";
 	}
 }
 

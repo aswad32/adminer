@@ -981,12 +981,14 @@ class Adminer {
 	* @param string $missing can be "auth" if there is no database connection, "db" if there is no database selected, "ns" with invalid schema
 	*/
 	function navigation(string $missing): void {
+		echo "<div class='nav-brand'>\n";
 		echo "<h1>" . adminer()->name() . " <span class='version'>" . VERSION;
 		$new_version = $_COOKIE["adminer_version"];
 		echo " <a href='https://www.adminer.org/#download'" . target_blank() . " id='version'>" . (version_compare(VERSION, $new_version) < 0 ? h($new_version) : "") . "</a>";
 		echo "</span></h1>\n";
 		// this is matched by compile.php
 		switch_lang();
+		echo "</div>\n";
 		if ($missing == "auth") {
 			$output = "";
 			foreach ((array) $_SESSION["pwds"] as $vendor => $servers) {
@@ -1003,7 +1005,9 @@ class Adminer {
 				}
 			}
 			if ($output) {
+				echo "<div class='nav-section'>\n";
 				echo "<ul id='logins'>\n$output</ul>\n" . script("mixin(qs('#logins'), {onmouseover: menuOver, onmouseout: menuOut});");
+				echo "</div>\n";
 			}
 		} else {
 			$tables = array();
@@ -1025,13 +1029,19 @@ class Adminer {
 			if ($in_db && function_exists('Adminer\alter_table')) {
 				$actions[] = '<a href="' . h(ME) . 'create="' . bold($_GET["create"] === "") . ">" . lang('Create table') . "</a>";
 			}
-			echo ($actions ? "<p class='links'>\n" . implode("\n", $actions) . "\n" : "");
+			if ($actions) {
+				echo "<div class='nav-section'>\n";
+				echo "<p class='links'>\n" . implode("\n", $actions) . "\n";
+				echo "</div>\n";
+			}
 			if ($in_db) {
+				echo "<div class='nav-section'>\n";
 				if ($tables) {
 					adminer()->tablesPrint($tables);
 				} else {
 					echo "<p class='message'>" . lang('No tables.') . "</p>\n";
 				}
+				echo "</div>\n";
 			}
 		}
 	}
