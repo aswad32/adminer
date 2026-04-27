@@ -206,8 +206,19 @@ td i { color: var(--color-muted); font-style: italic; font-size: 12px; }
 #breadcrumb { white-space: nowrap; position: absolute; top: 0; left: 21em; background: var(--color-surface-raised); border-bottom: 1px solid var(--color-border); height: 2.5em; line-height: 2.5em; padding: 0 var(--space-5); margin: 0; font-size: 13px; color: var(--color-muted); }
 #breadcrumb a { color: var(--color-muted); text-decoration: none; }
 #breadcrumb a:hover { color: var(--color-primary); }
-/* Login page has no breadcrumb bar — remove top gap */
-body:has(table.layout) #content { margin-top: 0; }
+/* Login page: hide sidebar and center content.
+   Selector: page_footer("auth") omits .logout — reliable login-page marker.
+   table.layout also appears on edit-row and dump screens, so it cannot be used. */
+body:not(:has(.logout)) #foot { display: none; }
+body:not(:has(.logout)) #menuopen { display: none; }
+body:not(:has(.logout)) #breadcrumb { display: none; }
+body:not(:has(.logout)) #content {
+    margin: 0;
+    padding: var(--space-6) var(--space-4);
+    min-height: 100vh;
+    background: var(--color-surface-raised);
+    box-sizing: border-box;
+}
 #logo { vertical-align: baseline; margin-bottom: -3px; }
 #menu h1 { font-size: 16px; margin: 0; padding: var(--space-4) var(--space-4) var(--space-3); border-bottom: 1px solid var(--color-border); font-weight: 600; color: var(--color-text); background: var(--color-surface-raised); display: flex; align-items: center; gap: var(--space-2); }
 #h1 { color: var(--color-text); text-decoration: none; font-style: normal; display: flex; align-items: center; gap: var(--space-2); }
@@ -301,7 +312,7 @@ input[type="file"] { font-size: 13px; color: var(--color-muted); }
 .icon-move { background-image: url(data:image/gif;base64,R0lGODlhEgASAJEAAO7u7gAAAJmZmQAAACH5BAEAAAEALAAAAAASABIAAAIfhI+py+3vgpyU0Rug3gnX5U3cqIWSZZLqigjuC8dvAQA7); }
 #schema .arrow { height: 1.25em; background: url(data:image/gif;base64,R0lGODlhCAAKAIAAAICAgP///yH5BAEAAAEALAAAAAAIAAoAAAIPBIJplrGLnpQRqtOy3rsAADs=) no-repeat right center; }
 
-/* ─── Login screen (table.layout only appears on the login page) ──────────── */
+/* ─── Login screen ─────────────────────────────────────────────────────────── */
 
 /* TASK-LOGIN-01: Login card */
 table.layout {
