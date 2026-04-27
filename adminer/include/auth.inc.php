@@ -150,6 +150,7 @@ function auth_error(string $error, array &$permanent) {
 		$_SESSION["token"] = rand(1, 1e6); // this is for next attempt
 	}
 	page_header(lang('Login'), $error, null);
+	echo "<div class='login-wrapper'>\n";
 	echo "<form action='' method='post'>\n";
 	echo "<div>";
 	if (hidden_fields($_POST, array("auth"))) { // expired session
@@ -158,6 +159,7 @@ function auth_error(string $error, array &$permanent) {
 	echo "</div>\n";
 	adminer()->loginForm();
 	echo "</form>\n";
+	echo "</div>\n";
 	page_footer("auth");
 	exit;
 }

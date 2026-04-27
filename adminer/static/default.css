@@ -212,12 +212,17 @@ td i { color: var(--color-muted); font-style: italic; font-size: 12px; }
 body:not(:has(.logout)) #foot { display: none; }
 body:not(:has(.logout)) #menuopen { display: none; }
 body:not(:has(.logout)) #breadcrumb { display: none; }
-/* Constrain error/message banners to the form width on login page */
+/* Constrain messages + form to card width on login page via .login-wrapper */
 body:not(:has(.logout)) .error,
 body:not(:has(.logout)) .message {
     max-width: 420px;
     width: 100%;
-    margin-bottom: var(--space-4);
+}
+body:not(:has(.logout)) .login-wrapper {
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
 }
 body:not(:has(.logout)) #content {
     margin: 0;
@@ -241,11 +246,16 @@ body:not(:has(.logout)) h2 {
     background: none;
     padding: 0;
 }
-/* Login: constrain form width */
+/* Login: form fills the login-wrapper (max-width set on wrapper) */
 body:not(:has(.logout)) form {
     width: 100%;
-    max-width: 420px;
 }
+/* Nav brand wrapper (h1 + language switcher) — styling via children */
+.nav-brand { display: contents; }
+/* Nav section wrapper (action links, tables list) */
+.nav-section { display: contents; }
+/* Page messages wrapper */
+.page-messages { display: contents; }
 #logo { vertical-align: baseline; margin-bottom: -3px; }
 #menu h1 { font-size: 16px; margin: 0; padding: var(--space-4) var(--space-4) var(--space-3); border-bottom: 1px solid var(--color-border); font-weight: 600; color: var(--color-text); background: var(--color-surface-raised); display: flex; align-items: center; gap: var(--space-2); }
 #h1 { color: var(--color-text); text-decoration: none; font-style: normal; display: flex; align-items: center; gap: var(--space-2); }

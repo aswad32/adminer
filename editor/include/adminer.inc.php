@@ -570,17 +570,20 @@ ORDER BY ORDINAL_POSITION", null, "") as $row
 	}
 
 	function navigation($missing) {
+		echo "<div class='nav-brand'>\n";
 		echo "<h1>" . adminer()->name() . " <span class='version'>" . VERSION;
 		$new_version = $_COOKIE["adminer_version"];
 		echo " <a href='https://www.adminer.org/editor/#download'" . target_blank() . " id='version'>" . (version_compare(VERSION, $new_version) < 0 ? h($new_version) : "") . "</a>";
 		echo "</span></h1>\n";
 		switch_lang();
+		echo "</div>\n";
 		if ($missing == "auth") {
 			$first = true;
 			foreach ((array) $_SESSION["pwds"] as $vendor => $servers) {
 				foreach ($servers[""] as $username => $password) {
 					if ($password !== null) {
 						if ($first) {
+							echo "<div class='nav-section'>\n";
 							echo "<ul id='logins'>";
 							echo script("mixin(qs('#logins'), {onmouseover: menuOver, onmouseout: menuOut});");
 							$first = false;
@@ -589,15 +592,20 @@ ORDER BY ORDINAL_POSITION", null, "") as $row
 					}
 				}
 			}
+			if (!$first) {
+				echo "</div>\n";
+			}
 		} else {
 			adminer()->databasesPrint($missing);
 			if ($missing != "db" && $missing != "ns") {
+				echo "<div class='nav-section'>\n";
 				$table_status = table_status('', true);
 				if (!$table_status) {
 					echo "<p class='message'>" . lang('No tables.') . "\n";
 				} else {
 					adminer()->tablesPrint($table_status);
 				}
+				echo "</div>\n";
 			}
 		}
 	}
